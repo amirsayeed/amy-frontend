@@ -15,8 +15,8 @@ export function LoginForm({setOpen,setLoggedIn}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState("");
 
   // Login handler
   const handleLogin = async (e) => {
@@ -94,7 +94,7 @@ export function LoginForm({setOpen,setLoggedIn}) {
             </Button>
           </div>
 
-          {error && <p className="text-red-500 text-center">{error}</p>}
+          {/* {error && <p className="text-red-500 text-center">{error}</p>} */}
 
           <div className="flex justify-between text-sm text-blue-600 mt-2">
             <button type="button" className="hover:underline">

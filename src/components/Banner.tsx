@@ -11,13 +11,15 @@ const Banner = () => {
             style={{ objectFit: "cover" }}
             priority />
             </div>
-            <div className='absolute top-5 flex flex-col items-center justify-center'>
+            <div className='absolute top-8'>
+            <div className='flex flex-col items-center justify-center'>
                 <h4 className='text-4xl'>উড়াল দিন</h4>
                 <div>
                     <div className='flex items-center'></div>
                     <div className='flex items-center'></div>
                     <div className='flex items-center'></div>
                 </div>
+            </div>
             </div>
         </div>
     );

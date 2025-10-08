@@ -35,9 +35,11 @@ const Navbar = () => {
 
     return (
         <div className='shadow-md'>
-            <div className='max-w-6xl mx-auto flex items-center justify-between py-3 px-4 md:px-8 lg:px-12'>
+            <div className='max-w-6xl mx-auto flex items-center justify-between py-3 px-4 md:px-6 lg:px-8'>
                 <div>
-                    <Image src="/images/logo.png" height={70} width={70} alt='logo of the website' />
+                    <Link href={'/'}>
+                        <Image src="/images/logo.png" height={70} width={70} alt='logo of the website' />
+                    </Link>
                 </div>
 
                 <div className='flex gap-1 items-center'>
