@@ -11,7 +11,7 @@ return (
         <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-xl tracking-tight">উড়াল দিন</h1>
         <div className="mt-3"><StatBadges /></div>
         </div>
-        <div className="mx-auto max-w-6xl rounded-[22px] bg-white/90 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] backdrop-blur ring-1 ring-black/5">
+        <div className="mx-auto max-w-6xl rounded-[22px]">
         <TabsNav />
         </div>
     </div>

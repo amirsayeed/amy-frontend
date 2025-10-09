@@ -70,8 +70,8 @@ export default function FlightForm() {
     (tripType !== "roundtrip" || !!ret);
 
   return (
-    <Card className="border-none shadow-2xl">
-      <CardContent className="space-y-5 bg-white/95 p-5 md:p-7 rounded-3xl">
+    <Card className="border-none shadow-2xl bg-white/90">
+      <CardContent className="space-y-5 p-5 md:p-7 rounded-3xl">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <RadioGroup
             value={tripType}
