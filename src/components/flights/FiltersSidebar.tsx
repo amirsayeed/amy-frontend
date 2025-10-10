@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
-export default function FiltersSidebar() {
+
+export default function FiltersSidebar({ onSortChange }) {
   return (
     <Card className="border-none shadow-lg">
       <CardContent className="space-y-5 p-5 text-base">
@@ -18,6 +19,7 @@ export default function FiltersSidebar() {
         <div className="flex flex-wrap items-center gap-5">
           <RadioGroup
             className="flex flex-wrap gap-5"
+            onValueChange={(val) => onSortChange(val)}
           >
           <div className="flex items-center gap-2">
             <RadioGroupItem id="sort-cheapest" value="cheapest" />

@@ -1,13 +1,11 @@
-import type { ReactNode } from "react";
+"use client";
 
-import FlightForm from "@/components/search/flights/FlightForm";
+import FlightForm from "../search/flights/FlightForm";
 
-export default function FlightsLayout({ children }: { children: ReactNode }) {
+export default function FlightsBanner() {
   return (
-    <main className="min-h-screen">
-      <div className="flex flex-col">
-      <section className="relative isolate">
-          <div
+    <div>
+        <div
           className="absolute inset-0 -z-10 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/bg6.webp')" }}
           />
@@ -20,13 +18,6 @@ export default function FlightsLayout({ children }: { children: ReactNode }) {
             <FlightForm />
           </div>
           </div>
-        </section>
-        <div>         
-          <section className="min-h-screen">
-            {children}
-          </section>
-        </div>
-      </div>
-    </main>
+    </div>
   );
 }

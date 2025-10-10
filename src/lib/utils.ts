@@ -20,5 +20,4 @@ export async function verifySession() {
 
   const result = await res.json();
   return { valid: result?.mStatus === true, data: result };
-  // return result;
 }
