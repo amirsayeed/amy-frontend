@@ -10,7 +10,7 @@ export type Pax = { adults: number; children: number; infants: number; childDOBs
 
 
 function Pill({ value }: { value: number }) {
-return <div className="inline-flex min-w-6 items-center justify-center rounded-full border px-2 text-sm font-medium">{value}</div>;
+return <div className="inline-flex min-w-6 items-center justify-center px-2 text-sm font-medium">{value}</div>;
 }
 
 function CounterRow({ label, sub, value, min = 0, max = 9, onChange }: { label: string; sub?: string; value: number; min?: number; max?: number; onChange: (v: number) => void; }) {

@@ -20,28 +20,30 @@ export default function TabsNav() {
       {
         pathname==='/' &&
         (
-        <div className="rounded-2xl max-w-4xl mx-auto bg-white p-2 shadow-sm ring-1 ring-black/5">
-        <TabsList className="mx-auto grid w-full grid-cols-6 gap-1 rounded-2xl bg-white p-1">
-          <TabsTrigger value="flights" className={triggerBase}>
-            <Plane className="mr-2 h-4 w-4" /> Flights
-          </TabsTrigger>
-          <TabsTrigger value="hotels" className={triggerBase}>
-            <Building2 className="mr-2 h-4 w-4" /> Hotels
-          </TabsTrigger>
-          <TabsTrigger value="visa" className={triggerBase}>
-            <Globe className="mr-2 h-4 w-4" /> Visa
-          </TabsTrigger>
-          <TabsTrigger value="umrah" className={triggerBase}>
-            <MoonStar className="mr-2 h-4 w-4" /> Umrah
-          </TabsTrigger>
-          <TabsTrigger value="tours" className={triggerBase}>
-            <Map className="mr-2 h-4 w-4" /> Tours
-          </TabsTrigger>
-          <TabsTrigger value="explore" className={triggerBase}>
-            <Compass className="mr-2 h-4 w-4" /> Explore
-          </TabsTrigger>
-        </TabsList>
-      </div>
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+          <div className="rounded-2xl max-w-4xl mx-auto bg-white p-2 shadow-sm ring-1 ring-black/5">
+          <TabsList className="mx-auto grid w-full grid-cols-6 gap-1 rounded-2xl bg-white p-1">
+            <TabsTrigger value="flights" className={triggerBase}>
+              <Plane className="mr-2 h-4 w-4" /> Flights
+            </TabsTrigger>
+            <TabsTrigger value="hotels" className={triggerBase}>
+              <Building2 className="mr-2 h-4 w-4" /> Hotels
+            </TabsTrigger>
+            <TabsTrigger value="visa" className={triggerBase}>
+              <Globe className="mr-2 h-4 w-4" /> Visa
+            </TabsTrigger>
+            <TabsTrigger value="umrah" className={triggerBase}>
+              <MoonStar className="mr-2 h-4 w-4" /> Umrah
+            </TabsTrigger>
+            <TabsTrigger value="tours" className={triggerBase}>
+              <Map className="mr-2 h-4 w-4" /> Tours
+            </TabsTrigger>
+            <TabsTrigger value="explore" className={triggerBase}>
+              <Compass className="mr-2 h-4 w-4" /> Explore
+            </TabsTrigger>
+          </TabsList>
+        </div>
+        </div>
         )
       }
 
@@ -56,7 +58,7 @@ export default function TabsNav() {
         <HotelForm />
       </TabsContent>
 
-      <TabsContent value="visa" className="mt-3">
+      <TabsContent value="visa" className="mt-2">
         <VisaForm />
       </TabsContent>
 

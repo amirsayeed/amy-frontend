@@ -7,15 +7,43 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { RotateCcw } from "lucide-react";
 
 
-export default function FiltersSidebar({ onSortChange }) {
+export default function FiltersSidebar({
+  onSortChange,
+  refundFilter = "any",
+  onRefundChange = () => {},
+  onReset = () => {},
+  onwardSegment = null,               
+  setOnwardSegment = () => {}   
+  }) 
+  {
+  const segments = ["00–06", "06–12", "12–18", "18–00"] as const;
+  const handleSegClick = (seg: typeof segments[number]) => {
+    setOnwardSegment(onwardSegment === seg ? null : seg);
+  };
+
   return (
-    <Card className="border-none shadow-lg">
-      <CardContent className="space-y-5 p-5 text-base">
-        <div className="text-base font-semibold">Filters</div>
+    <Card className="border shadow-lg">
+      <CardContent className="space-y-5 p-4 text-base">
+      <div className="flex justify-between text-xl font-semibold">
+        <span>Filters</span>
+        <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        className="h-8 px-2"
+        onClick={onReset} 
+        title="Reset all filters"
+      >
+        <RotateCcw className="mr-1 h-4 w-4" />
+        Reset
+      </Button>
+      </div>
+      
+      <Separator />
 
-        {/* Row 1: Sort options (structure only) */}
         <div className="flex flex-wrap items-center gap-5">
           <RadioGroup
             className="flex flex-wrap gap-5"
@@ -42,7 +70,7 @@ export default function FiltersSidebar({ onSortChange }) {
 
         {/* Stops */}
         <div className="space-y-2">
-          <div className="font-medium">Any stops</div>
+          <div className="font-semibold">Any stops</div>
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Checkbox id="stops-direct" />
@@ -63,13 +91,14 @@ export default function FiltersSidebar({ onSortChange }) {
 
         {/* Airlines */}
         <div className="space-y-2">
-          <div className="font-medium">Airlines</div>
+          <div className="font-semibold">Airlines</div>
           <div className="space-y-3">
             {[
               { code: "BG", name: "Biman Bangladesh Airlines" },
               { code: "BS", name: "US-Bangla Airlines" },
-              { code: "VQ", name: "NOVOAIR" },
               { code: "2A", name: "Air Astra" },
+              { code: "VQ", name: "NOVOAIR" }
+              
             ].map((a) => (
               <div key={a.code} className="flex items-center gap-2">
                 <Checkbox id={`al-${a.code}`} />
@@ -83,27 +112,31 @@ export default function FiltersSidebar({ onSortChange }) {
 
         <Separator />
 
-        {/* Onward Day Segments */}
+        {/* Onward Day Segments*/}
         <div className="space-y-2">
-          <div className="font-medium">Onward Day Segments</div>
+          <div className="font-semibold">Onward Day Segments</div>
           <div className="grid grid-cols-2 gap-2">
-            {["00–06", "06–12", "12–18", "18–00"].map((t) => (
-              <Button
-                key={`onward-${t}`}
-                variant="outline"
-                size="sm"
-                className="justify-center"
-                type="button"
-              >
-                {t}
-              </Button>
-            ))}
+            {segments.map((t) => {
+              const active = onwardSegment === t;
+              return (
+                <Button
+                  key={`onward-${t}`}
+                  variant={active ? "default" : "outline"}  
+                  size="sm"
+                  className="justify-center"
+                  type="button"
+                  onClick={() => handleSegClick(t)}
+                >
+                  {t}
+                </Button>
+              );
+            })}
           </div>
         </div>
 
         {/* Return Day Segments */}
         <div className="space-y-2">
-          <div className="font-medium">Return Day Segments</div>
+          <div className="font-semibold">Return Day Segments</div>
           <div className="grid grid-cols-2 gap-2">
             {["00–06", "06–12", "12–18", "18–00"].map((t) => (
               <Button
@@ -121,7 +154,7 @@ export default function FiltersSidebar({ onSortChange }) {
 
         {/* Onward Layover time */}
         <div className="space-y-2">
-          <div className="font-medium">Onward Layover time</div>
+          <div className="font-semibold">Onward Layover time</div>
           <div className="flex flex-wrap gap-2">
             {["0h–05h", "05h–10h", "10h–15h", "15h+"].map((t) => (
               <Button key={`layover-on-${t}`} variant="outline" size="sm" type="button">
@@ -133,7 +166,7 @@ export default function FiltersSidebar({ onSortChange }) {
 
         {/* Return Layover time */}
         <div className="space-y-2">
-          <div className="font-medium">Return Layover time</div>
+          <div className="font-semibold">Return Layover time</div>
           <div className="flex flex-wrap gap-2">
             {["0h–05h", "05h–10h", "10h–15h", "15h+"].map((t) => (
               <Button key={`layover-ret-${t}`} variant="outline" size="sm" type="button">
@@ -145,28 +178,29 @@ export default function FiltersSidebar({ onSortChange }) {
 
         {/* Onward Fare Range */}
         <div className="space-y-2">
-          <div className="font-medium">Onward Fare Range</div>
-          <Slider defaultValue={[20, 80]} step={1} min={0} max={100} />
+          <div className="font-semibold">Onward Fare Range</div>
+          <Slider defaultValue={[0, 100]} step={1} min={0} max={100} />
           <div className="flex justify-between text-xs text-muted-foreground">
-            <span>BDT 4503</span>
-            <span>BDT 6154</span>
+            <span>BDT 6398</span>
+            <span>BDT 12199</span>
           </div>
         </div>
 
         {/* Return Fare Range */}
         <div className="space-y-2">
-          <div className="font-medium">Return Fare Range</div>
-          <Slider defaultValue={[30, 70]} step={1} min={0} max={100} />
+          <div className="font-semibold">Return Fare Range</div>
+          <Slider defaultValue={[0, 100]} step={1} min={0} max={100} />
           <div className="flex justify-between text-xs text-muted-foreground">
-            <span>BDT 4503</span>
-            <span>BDT 4503</span>
+            <span>BDT 6398</span>
+            <span>BDT 12199</span>
           </div>
         </div>
 
-        {/* Fare Type */}
         <div className="space-y-2">
-        <div className="font-medium">Fare Type</div>
+        <div className="font-semibold">Fare Type</div>
         <RadioGroup
+          value={refundFilter}               
+          onValueChange={onRefundChange}          
           className="flex flex-wrap gap-5"
         >
 
@@ -180,11 +214,11 @@ export default function FiltersSidebar({ onSortChange }) {
             <Label htmlFor="fare-nonref">Non-Refundable</Label>
           </div>
         </RadioGroup>
-        </div>
+      </div>
 
         {/* Provider */}
         <div className="space-y-2">
-          <div className="font-medium">Provider</div>
+          <div className="font-semibold">Provider</div>
           <div className="flex items-center gap-2">
             <Checkbox id="prov-bd" />
             <Label htmlFor="prov-bd">BD</Label>

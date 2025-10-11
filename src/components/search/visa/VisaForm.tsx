@@ -20,7 +20,7 @@ export default function VisaForm() {
 
   return (
     <Card className="border-none shadow-2xl">
-      <CardContent className="space-y-5 rounded-3xl bg-white/95 p-5 md:p-7">
+      <CardContent className="space-y-5 rounded-3xl p-5 ">
         <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-12 md:items-end">
           <div className="md:col-span-6 space-y-1">
             <Label className="pl-0.5 text-sm text-muted-foreground">Country</Label>

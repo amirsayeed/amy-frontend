@@ -99,7 +99,7 @@ export default function HotelForm() {
 
   return (
     <Card className="border-none shadow-2xl">
-      <CardContent className="space-y-5 bg-white/95 p-5 md:p-7 rounded-3xl">
+      <CardContent className="space-y-5 p-5 rounded-3xl">
         <div className="flex flex-wrap items-center gap-3">
           <RoomsSelect value={rooms} onChange={setRooms} />
           <GuestsPopover

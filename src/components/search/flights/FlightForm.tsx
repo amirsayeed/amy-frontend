@@ -49,7 +49,6 @@ export default function FlightForm() {
     setRet(undefined);
   };
 
-  // ✅ Handle form submission
   const onSubmit = async () => {
     const payload = {
       tripType,
@@ -68,13 +67,6 @@ export default function FlightForm() {
     };
 
     console.log("Search flights:", payload);
-
-    // Example: Send POST request if needed
-    // await fetch("/api/search", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(payload),
-    // });
 
     router.push("/flights");
   };
@@ -143,7 +135,7 @@ export default function FlightForm() {
               <PlaceField label="Journey From" value={from} onChange={setFrom} />
               <div>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="icon"
                   onClick={swap}
                   className="mt-6 rounded-full"
@@ -171,7 +163,7 @@ export default function FlightForm() {
 
               <div>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="icon"
                   onClick={swap}
                   className="mt-6 rounded-full"
@@ -214,7 +206,7 @@ export default function FlightForm() {
 
               <div>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="icon"
                   onClick={swap}
                   className="mt-6 rounded-full"
